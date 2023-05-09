@@ -65,6 +65,7 @@ public class FormKasir extends javax.swing.JFrame {
         fieldPesanan.setEditable(false);
         fieldPesanan.setBackground(new java.awt.Color(255, 255, 255));
         fieldPesanan.setColumns(1);
+        fieldPesanan.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         fieldPesanan.setRows(5);
         jScrollPane1.setViewportView(fieldPesanan);
 
@@ -72,7 +73,11 @@ public class FormKasir extends javax.swing.JFrame {
         jLabel5.setText("Harga");
 
         fieldHarga.setEditable(false);
-        fieldHarga.setText("10000");
+        fieldHarga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldHargaActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Rp.");
@@ -108,63 +113,57 @@ public class FormKasir extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 4, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(fieldTotalHarga))
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(fieldHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(fieldMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fieldTotalHarga)))))
+                            .addComponent(jButton2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel2)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(101, 101, 101))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addGap(23, 23, 23))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addGap(164, 164, 164)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -184,42 +183,68 @@ public class FormKasir extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addGap(47, 47, 47))))
+                        .addGap(47, 47, 47))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int a = fieldMenu.getSelectedIndex();
-        int tambahanHarga = 0;
-        String selectedItems = "";
-        if(a == 1){
-            selectedItems = "Nasi Goreng\n";
+    int getNumComboBox(int index){
+        int tambahanHarga;
+        if(index == 1){
             tambahanHarga = 10000;
-        } else if(a == 2){
-            selectedItems = "Nasi Kuning\n";
+        } else if(index == 2){
             tambahanHarga = 12000;
-        } else if(a == 3){
-            selectedItems = "Nasi Campur\n";
+        } else if(index == 3){
             tambahanHarga = 8000;
-        } else if(a == 4){
-            selectedItems = "Nasi\n";
+        } else if(index == 4){
             tambahanHarga = 5000;
         } else {
-            selectedItems = "";
+            
             tambahanHarga = 0;
         }
-        String addPesanan = fieldPesanan.getText() + selectedItems;
-        fieldHarga.setText(Integer.toString(this.totalHarga));
+        return tambahanHarga;
+    }
+    
+    String getReceiptComboBox(int index){
+        String tambahanHarga;
+        if(index == 1){
+            tambahanHarga = "10000";
+        } else if(index == 2){
+            tambahanHarga = "12000";
+        } else if(index == 3){
+            tambahanHarga = " 8000";
+        } else if(index == 4){
+            tambahanHarga = "\t 5000";
+        } else {
+            tambahanHarga = "";
+        }
+        return tambahanHarga;
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int a = fieldMenu.getSelectedIndex();
+        Object menuName = fieldMenu.getSelectedItem();
+        String receiptHarga = getReceiptComboBox(a);
+        int tambahanHarga = getNumComboBox(a);
+        String addPesanan;
+        
         this.totalHarga += tambahanHarga;
-        fieldTotalHarga.setText(Integer.toString(this.totalHarga));
-        fieldPesanan.setText(addPesanan);        // TODO add your handling code here:
+        if(a != 0){
+            addPesanan = fieldPesanan.getText() + (menuName + "\t\t\t" + receiptHarga + "\n");
+            fieldTotalHarga.setText(Integer.toString(this.totalHarga));
+        } else {
+            addPesanan = fieldPesanan.getText() + "";
+            fieldTotalHarga.setText("");
+        }
+        fieldPesanan.setText(addPesanan); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String tutupPesanan = fieldPesanan.getText() + "-------------------------------------\nTotal\t\t\t\t" + this.totalHarga;
+        fieldPesanan.setText(tutupPesanan);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void fieldTotalHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTotalHargaActionPerformed
@@ -228,7 +253,19 @@ public class FormKasir extends javax.swing.JFrame {
 
     private void fieldMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldMenuActionPerformed
         // TODO add your handling code here:
+        int harga = fieldMenu.getSelectedIndex();
+        
+        if(harga != 0){
+            fieldHarga.setText(Integer.toString(getNumComboBox(fieldMenu.getSelectedIndex())));   
+            
+        } else {
+            fieldHarga.setText("");
+        }
     }//GEN-LAST:event_fieldMenuActionPerformed
+
+    private void fieldHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldHargaActionPerformed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_fieldHargaActionPerformed
 
     /**
      * @param args the command line arguments
