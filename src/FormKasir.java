@@ -9,6 +9,7 @@
  */
 public class FormKasir extends javax.swing.JFrame {
     int totalHarga = 0;
+    boolean tutup = false;
     /**
      * Creates new form FormKasir
      */
@@ -44,7 +45,8 @@ public class FormKasir extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel1.setText("Warungs Slebew");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Warung Slebew");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Tambah Pesanan");
@@ -73,6 +75,7 @@ public class FormKasir extends javax.swing.JFrame {
         jLabel5.setText("Harga");
 
         fieldHarga.setEditable(false);
+        fieldHarga.setBackground(new java.awt.Color(231, 231, 231));
         fieldHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldHargaActionPerformed(evt);
@@ -100,6 +103,7 @@ public class FormKasir extends javax.swing.JFrame {
         jLabel7.setText("Total Harga");
 
         fieldTotalHarga.setEditable(false);
+        fieldTotalHarga.setBackground(new java.awt.Color(231, 231, 231));
         fieldTotalHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldTotalHargaActionPerformed(evt);
@@ -147,11 +151,11 @@ public class FormKasir extends javax.swing.JFrame {
                         .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(253, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel1)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +229,7 @@ public class FormKasir extends javax.swing.JFrame {
         return tambahanHarga;
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.tutup = false;
         int a = fieldMenu.getSelectedIndex();
         Object menuName = fieldMenu.getSelectedItem();
         String receiptHarga = getReceiptComboBox(a);
@@ -237,14 +242,25 @@ public class FormKasir extends javax.swing.JFrame {
             fieldTotalHarga.setText(Integer.toString(this.totalHarga));
         } else {
             addPesanan = fieldPesanan.getText() + "";
+            if(this.totalHarga == 0){
             fieldTotalHarga.setText("");
+            }
         }
         fieldPesanan.setText(addPesanan); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String tutupPesanan = fieldPesanan.getText() + "-------------------------------------\nTotal\t\t\t\t" + this.totalHarga;
-        fieldPesanan.setText(tutupPesanan);        // TODO add your handling code here:
+        if(!this.tutup){
+            String tutupPesanan = fieldPesanan.getText() + "-------------------------------------\nTotal\t\t\t\t" + this.totalHarga;
+            fieldPesanan.setText(tutupPesanan);  
+            this.totalHarga = 0;
+            this.tutup = true;// TODO add your handling code here:
+            jButton2.setText("Tutup pesanan");
+        } else {
+            fieldPesanan.setText("");
+            jButton2.setText("Pesan");
+            fieldTotalHarga.setText("");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void fieldTotalHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTotalHargaActionPerformed
